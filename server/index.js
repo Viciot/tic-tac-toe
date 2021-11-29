@@ -6,6 +6,7 @@ const fs = require("fs");
 
 const server = http.Server(app).listen(8080);
 const io = socketIo(server);
+console.log(io)
 const clients = {};
 
 // Serve static resources
@@ -24,6 +25,7 @@ var unmatched;
 // When a client connects
 io.on("connection", function(socket) {
     let id = socket.id;
+    console.log(socket.id);
 
     console.log("New client connected. ID: ", socket.id);
     clients[socket.id] = socket;
